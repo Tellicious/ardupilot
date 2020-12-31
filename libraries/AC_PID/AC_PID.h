@@ -40,8 +40,7 @@ public:
         const float &   initial_d = 0.0,
         const int16_t & initial_imax = 0.0):
         _integrator(0),
-        _last_input_d(0),
-        _last_error_i(0),
+        _last_input(0),
         _last_derivative(0),
         _d_lpf_alpha(AC_PID_D_TERM_FILTER)
     {
@@ -122,8 +121,7 @@ protected:
     AP_Int16        _imax;
 
     float           _integrator;                                ///< integrator value
-    float           _last_input_d;                                ///< last input for derivative
-    float           _last_error_i;                                ///< last error for integrator
+    float           _last_input;                                ///< last input for derivative
     float           _last_derivative;                           ///< last derivative for low-pass filter
     float           _d_lpf_alpha;                               ///< alpha used in D-term LPF
 };

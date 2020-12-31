@@ -57,7 +57,7 @@ float AC_PID::get_d(float input, float dt)
 			_last_derivative = 0;
 		} else {
 			// calculate instantaneous derivative
-			derivative = (input - _last_input_d) / dt;
+			derivative = (input - _last_input) / dt;
 		}
 
         // discrete low pass filter, cuts out the
@@ -65,7 +65,7 @@ float AC_PID::get_d(float input, float dt)
         derivative = _last_derivative + _d_lpf_alpha * (derivative - _last_derivative);
 
         // update state
-        _last_input_d             = input;
+        _last_input             = input;
         _last_derivative    = derivative;
 
         // add in derivative component
